@@ -25,3 +25,7 @@ function divide(arr) {
     });
     return result;
 }
+
+function operate(num1, num2, operator) {
+    return operator([num1, num2]);
+}
