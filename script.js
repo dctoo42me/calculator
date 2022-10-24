@@ -48,12 +48,21 @@ function divide(arr) {
 function operate(num1, num2, operator) {
     result = operator([num1, num2]);
     console.log('END OP num1:', num1, 'num2:', num2, operator, 'result:',result);
-    display.textContent = result;
+    display.textContent = Math.round(result);
 }
 
 //clear the numbers array
 function numClear() {
     numbers.splice(0,numbers.length);
+}
+
+function clearAll() {
+        numbers.splice(0,numbers.length);
+        // display.textContent = 0;
+        num1 = '';
+        num2 = '';
+        result = '';
+        console.log('clear clicked, nums arr cleared, display cleared, num1 & num2 cleared');
 }
 
 //iterate over buttons and show selected numbers on display screen in ui
@@ -199,7 +208,13 @@ function operationStart(e) {
     // console.log(e.target.className, 'clicked');
     console.log('num1:', num1, 'num2:',num2, typeof num2, 'num arr:', numbers, 'result:', result);
     console.log('operation start');
-    if(
+    if( operation === divide ||
+        nextOperation === divide &&
+        num1 === 0 || num2 === 0) {
+            display.textContent = `Can't do that!`;
+            clearAll();
+            return;
+    }else if( 
         operation === undefined &&
         nextOperation === undefined &&
         num1 !== undefined && num1 !== '') {
