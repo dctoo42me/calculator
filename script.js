@@ -48,21 +48,28 @@ function divide(arr) {
 function operate(num1, num2, operator) {
     result = operator([num1, num2]);
     console.log('END OP num1:', num1, 'num2:', num2, operator, 'result:',result);
-    display.textContent = Math.round(result);
+    if(
+        result % 1 !== 0 ) {
+            result = result.toFixed(1);
+        }
+    display.textContent = result;
 }
 
 //clear the numbers array
 function numClear() {
     numbers.splice(0,numbers.length);
+    document.querySelector('.decimal').disabled = false;
 }
 
+//clears all except display, needed in case of division by 0
 function clearAll() {
         numbers.splice(0,numbers.length);
         // display.textContent = 0;
         num1 = '';
         num2 = '';
         result = '';
-        console.log('clear clicked, nums arr cleared, display cleared, num1 & num2 cleared');
+        document.querySelector('.decimal').disabled = false;
+        console.log('clear clicked, nums arr cleared, display NOT cleared, num1 & num2 cleared');
 }
 
 //iterate over buttons and show selected numbers on display screen in ui
@@ -74,17 +81,21 @@ function displayNumbers() {
             btn.textContent !== 'blank') {
             numbers.push(btn.textContent);
             display.textContent = Number(numbers.join(''));
-            console.log('numbers pushed to array');
-            // console.log('num1 type: ', typeof num1);
-        } else if(
+            console.log(display.textContent,'numbers pushed to array');
+        } else if (  
             btn.textContent === 'C') {
             numbers.splice(0,numbers.length);
             display.textContent = 0;
             num1 = '';
             num2 = '';
             result = '';
+            document.querySelector('.decimal').disabled = false;
             console.log('clear clicked, nums arr cleared, display cleared, num1 & num2 cleared');
         }
+        if(
+            btn.textContent === '.') {
+                document.querySelector('.decimal').disabled = true;
+            }
     }));
 }
 displayNumbers();
@@ -205,16 +216,17 @@ function initialSetup(func) {
 
 //start operation with a function check and if statement
 function operationStart(e) {
-    // console.log(e.target.className, 'clicked');
+    console.log(e.target.className, 'clicked');
     console.log('num1:', num1, 'num2:',num2, typeof num2, 'num arr:', numbers, 'result:', result);
     console.log('operation start');
-    if( operation === divide ||
-        nextOperation === divide &&
-        num1 === 0 || num2 === 0) {
+    if( 
+        operation === divide && num1 === 0 ||
+        operation === divide && num2 === 0) {
+            console.log('target', e.target.className);
             display.textContent = `Can't do that!`;
             clearAll();
             return;
-    }else if( 
+    } else if( 
         operation === undefined &&
         nextOperation === undefined &&
         num1 !== undefined && num1 !== '') {
@@ -241,7 +253,6 @@ function operationStart(e) {
             operateOnNum1AndNum2();
     } else { 
         funcCheck(e);
-        // operation = func;
         console.log('RAN FUNC CHECK on ELSE');
     if(
         num1 !== undefined && num1 !== '') {

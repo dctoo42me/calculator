@@ -17,7 +17,7 @@ h2 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(66, 55, 55, 0.507);
+    background-color: rgb(36, 33, 33);
     width: auto;
     height: 300px;
     padding: 10px;
@@ -58,6 +58,9 @@ button:active {
     width: 60px;
     height: 100%;
 }
+.operators-container button {
+    background-color: rgb(236, 186, 77);
+}
 .numbers-container {
     display: flex;
     flex-direction: row;
@@ -71,8 +74,12 @@ button:active {
 .blank {
     opacity: 0;
 }
-.equals {
-    background-color: rgb(248, 158, 116);
+/* .equals {
+    background-color: rgb(248, 129, 74);
+} */
+#equals {
+    background-color: rgb(252, 81, 2);
+
 }
 .equals:hover {
     background-color: rgb(245, 99, 31);
@@ -87,8 +94,9 @@ button:active {
         background-color: black;
     }
     .calculator-wrapper {
+        background-color: rgb(134, 130, 130);
         transition: all .0s;
-        transform: scale(1.5);
+        transform: scale(1.2);
     }
 
 }
