@@ -10,6 +10,7 @@ h2 {
     font-size: 30px;
     margin: 0;
     padding: 0;
+    padding-right: 5px;
 }
 .calculator-wrapper {
     display: flex;
@@ -37,9 +38,9 @@ button:active {
     display: flex;
     justify-content: end;
     align-items: center;
-    width: 250px;
+    width: 100%;
     height: 40px;
-    padding: 5px;
+    /* padding: 5px; */
     background-color: rgb(100, 193, 236);
 }
 .button-container {
@@ -78,3 +79,18 @@ button:active {
 .equals:active {
     background-color: rgb(255, 82, 2);
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (max-width: 600px) {
+    .calculator-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(66, 55, 55, 0.507);
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        row-gap: 10px;
+    }
+} */
