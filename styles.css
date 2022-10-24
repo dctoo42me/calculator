@@ -59,6 +59,12 @@ button:active {
     height: 100%;
 }
 .operators-container button {
+    background-color: rgba(236, 186, 77);
+}
+.operators-container button:hover {
+    background-color: rgb(236, 186, 77, 0.842);
+}
+.operators-container button:active {
     background-color: rgb(236, 186, 77);
 }
 .numbers-container {
@@ -81,11 +87,11 @@ button:active {
     background-color: rgb(252, 81, 2);
 
 }
-.equals:hover {
-    background-color: rgb(245, 99, 31);
+#equals:hover {
+    background-color: rgba(252, 81, 2, 0.842);
 }
-.equals:active {
-    background-color: rgb(255, 82, 2);
+#equals:active {
+    background-color: rgb(252, 81, 2);
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
