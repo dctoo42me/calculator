@@ -83,6 +83,9 @@ button:active {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
+    body {
+        background-color: black;
+    }
     .calculator-wrapper {
         transition: all .0s;
         transform: scale(1.5);
